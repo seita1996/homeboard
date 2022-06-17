@@ -4,7 +4,9 @@
       <div class="basis-1/2 h-46 bg-white rounded-lg border m-3">
         <digital-clock />
       </div>
-      <div class="basis-1/2 h-46 bg-white rounded-lg border m-3">天気</div>
+      <div class="basis-1/2 h-46 bg-white rounded-lg border m-3">
+        <weather-forecast />
+      </div>
     </div>
     <div class="flex flex-row">
       <div class="basis-1/3 h-1/2 m-3">
@@ -23,10 +25,12 @@
 <script>
 import CardList from '~/components/CardList.vue'
 import DigitalClock from '~/components/DigitalClock.vue'
+import WeatherForecast from '~/components/WeatherForecast.vue'
 export default {
   components: {
     CardList,
     DigitalClock,
+    WeatherForecast,
   },
   data () {
     return {
