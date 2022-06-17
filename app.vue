@@ -25,7 +25,8 @@ import CardList from '~/components/CardList.vue'
 import DigitalClock from '~/components/DigitalClock.vue'
 export default {
   components: {
-    DigitalClock
+    CardList,
+    DigitalClock,
   },
   data () {
     return {
