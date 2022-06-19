@@ -1,55 +1,21 @@
 <template>
   <div class="flex justify-around px-6 py-4">
-    <div class="w-180">
-      <div class="flex justify-center text-2xl text-gray-400 text-base">
-        5/1
-      </div>
-      <div class="flex flex-row">
-        <div class="basis-1/2">
-          <img src="~/assets/svg/day.svg" width="180px" height="180px" />
+    <div v-for="weather in weathers">
+      <div class="w-180">
+        <div class="flex justify-center text-2xl text-gray-400 text-base">
+          {{ weather.date }}
         </div>
-        <div class="basis-1/2 my-auto">
-          <div class="text-2xl text-gray-400 text-base">
-            25℃/18℃
+        <div class="flex flex-row">
+          <div class="basis-1/2">
+            <img :src="weather.weatherIcon" width="180px" height="180px" />
           </div>
-          <div class="text-2xl text-gray-400 text-base">
-            0%
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="w-180">
-      <div class="flex justify-center text-2xl text-gray-400 text-base">
-        5/2
-      </div>
-      <div class="flex flex-row">
-        <div class="basis-1/2">
-          <img src="~/assets/svg/rainy-7.svg" width="180px" height="180px" />
-        </div>
-        <div class="basis-1/2 my-auto">
-          <div class="text-2xl text-gray-400 text-base">
-            20℃/18℃
-          </div>
-          <div class="text-2xl text-gray-400 text-base">
-            60%
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="w-180">
-      <div class="flex justify-center text-2xl text-gray-400 text-base">
-        5/3
-      </div>
-      <div class="flex flex-row">
-        <div class="basis-1/2">
-          <img src="~/assets/svg/thunder.svg" width="180px" height="180px" />
-        </div>
-        <div class="basis-1/2 my-auto">
-          <div class="text-2xl text-gray-400 text-base">
-            18℃/10℃
-          </div>
-          <div class="text-2xl text-gray-400 text-base">
-            100%
+          <div class="basis-1/2 my-auto">
+            <div class="text-2xl text-gray-400 text-base">
+              {{ weather.maxTemp }}℃/{{ weather.minTemp }}℃
+            </div>
+            <div class="text-2xl text-gray-400 text-base">
+              {{ weather.pop }}%
+            </div>
           </div>
         </div>
       </div>
@@ -58,4 +24,40 @@
 </template>
 
 <script>
+// svgs
+import dayIcon from '@/assets/svg/day.svg'
+import rainy7Icon from '@/assets/svg/rainy-7.svg'
+import thunderIcon from '@/assets/svg/thunder.svg'
+
+export default {
+  data () {
+    return {
+      weathers: [
+        {
+          date: "5/1",
+          maxTemp: 25,
+          minTemp: 18,
+          pop: 0,
+          weatherIcon: dayIcon
+        },
+        {
+          date: "5/2",
+          maxTemp: 20,
+          minTemp: 18,
+          pop: 60,
+          weatherIcon: rainy7Icon
+        },
+        {
+          date: "5/3",
+          maxTemp: 18,
+          minTemp: 10,
+          pop: 100,
+          weatherIcon: thunderIcon
+        }
+      ]
+    }
+  },
+  methods: {
+  }
+}
 </script>
