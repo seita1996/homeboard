@@ -38,7 +38,7 @@ export default {
     setTime() {
       const date = new Date()
       this.year = date.getFullYear()
-      this.month = date.getMonth()
+      this.month = date.getMonth() + 1
       this.date = date.getDate()
       this.dayName = this.dayNames[date.getDay()]
       let hours = date.getHours()
