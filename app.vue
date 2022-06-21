@@ -19,21 +19,45 @@
         <card-list :title="'TODO'" />
       </div>
     </div>
+    <CogIcon class="h-10 w-10 text-gray-400 float-right mr-3 cursor-pointer" data-modal-toggle="authentication-modal" @click="showSettingModal" />
+    <div>
+      <setting-modal :isVisible="settingModalVisible" @close="closeSettingModal"></setting-modal>
+    </div>
   </div>
 </template>
 
 <script>
+import { CogIcon } from '@heroicons/vue/outline'
+
 import CardList from '~/components/CardList.vue'
 import DigitalClock from '~/components/DigitalClock.vue'
+import SettingModal from '~/components/SettingModal.vue'
 import WeatherForecast from '~/components/WeatherForecast.vue'
 export default {
   components: {
     CardList,
+    CogIcon,
     DigitalClock,
+    SettingModal,
     WeatherForecast,
   },
   data () {
     return {
+      settingModalVisible: false,
+    }
+  },
+  methods: {
+    showSettingModal() {
+      this.settingModalVisible = true
+    },
+    closeSettingModal() {
+      this.settingModalVisible = false
+    },
+    fetchSchedule() {
+      console.log('hoge')
+    },
+    fetchTodo() {
+      console.log('fuga')
     }
   }
 }
