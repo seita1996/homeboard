@@ -1,7 +1,7 @@
 <template>
   <teleport to="body">
     <div class="modal" id="setting-modal">
-      <div class="modal fade fixed inset-x-0 mx-auto top-32 w-1/2 h-full" v-show="isVisible" aria-hidden="true">
+      <div class="modal fade fixed inset-x-0 mx-auto top-28 w-1/2 h-full" v-show="isVisible" aria-hidden="true">
         <div class="modal-dialog relative w-auto pointer-events-none">
           <div class="modal-content border shadow-2xl relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
             <div
@@ -13,6 +13,10 @@
               <div class="mb-6">
                   <label for="timetreeapikey-input" class="block mb-2 text-sm font-medium text-gray-600">TimeTree API Key</label>
                   <input type="text" id="timetreeapikey-input" v-model="timetreeApiKey" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+              </div>
+              <div class="mb-6">
+                  <label for="timetreecalendarid-input" class="block mb-2 text-sm font-medium text-gray-600">TimeTree Calendar ID</label>
+                  <input type="text" id="timetreecalendarid-input" v-model="timetreeCalendarId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
               </div>
               <div class="mb-6">
                   <label for="notionapikey-input" class="block mb-2 text-sm font-medium text-gray-600">Notion API Key</label>
@@ -55,6 +59,7 @@ export default {
   data() {
     return {
       timetreeApiKey: '',
+      timetreeCalendarId: '',
       notionApiKey: '',
       notionTodoDatabaseId: '',
     }
@@ -66,12 +71,14 @@ export default {
     getSettings() {
       console.log('getSettings')
       this.timetreeApiKey = this.$cookiz.get('timetreeApiKey')
+      this.timetreeCalendarId = this.$cookiz.get('timetreeCalendarId')
       this.notionApiKey = this.$cookiz.get('notionApiKey')
       this.notionTodoDatabaseId = this.$cookiz.get('notionTodoDatabaseId')
     },
     updateSettings() {
       console.log('updateSettings')
       this.$cookiz.set('timetreeApiKey', this.timetreeApiKey)
+      this.$cookiz.set('timetreeCalendarId', this.timetreeCalendarId)
       this.$cookiz.set('notionApiKey', this.notionApiKey)
       this.$cookiz.set('notionTodoDatabaseId', this.notionTodoDatabaseId)
       alert('設定を更新しました')

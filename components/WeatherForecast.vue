@@ -192,8 +192,8 @@ export default {
   methods: {
     async fetchWeather() {
       const res = await axios.get('https://www.jma.go.jp/bosai/forecast/data/forecast/410000.json')
-      console.log('res', res)
-      console.log('res["data"][1]["timeSeries"]', res["data"][1]["timeSeries"])
+      // console.log('res', res)
+      // console.log('res["data"][1]["timeSeries"]', res["data"][1]["timeSeries"])
 
       const timeDefines = res["data"][1]["timeSeries"][0]["timeDefines"].slice(0, 3).map((dateStr) => new Date(dateStr)).map((date) => `${date.getMonth()}/${date.getDate()}`)
       const pops = res["data"][1]["timeSeries"][0]["areas"][0]["pops"].slice(0, 3).map((pop) => pop == '' ? '--' : pop )

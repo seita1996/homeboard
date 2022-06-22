@@ -33,6 +33,9 @@ import CardList from '~/components/CardList.vue'
 import DigitalClock from '~/components/DigitalClock.vue'
 import SettingModal from '~/components/SettingModal.vue'
 import WeatherForecast from '~/components/WeatherForecast.vue'
+
+import axios from 'axios'
+
 export default {
   components: {
     CardList,
@@ -87,12 +90,61 @@ export default {
     closeSettingModal() {
       this.settingModalVisible = false
     },
-    fetchSchedule() {
-      console.log('hoge')
+    eventTime(startAtStr, endAtStr) {
+      const startAt = new Date(Date.parse(startAtStr))
+      const endAt = new Date(Date.parse(endAtStr))
+
+      // startとendが同じ場合「終日」
+      if (startAt.getTime() == endAt.getTime()) return `${startAt.getMonth() + 1}/${startAt.getDate()} 終日`
+
+      return `${startAt.getMonth() + 1}/${startAt.getDate()} ${startAt.getHours()}:${startAt.getMinutes().toString().padStart(2, '0')} ~ ${endAt.getHours()}:${endAt.getMinutes().toString().padStart(2, '0')}`
+    },
+    async fetchSchedule() {
+      const calendarId = this.$cookiz.get('timetreeCalendarId')
+      const token = this.$cookiz.get('timetreeApiKey')
+      const res = await axios.get(`https://timetreeapis.com/calendars/${calendarId}/upcoming_events?timezone=Asia/Tokyo&days=7&include=attendees`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      })
+      // console.log('res', res)
+      this.updateSchedureCards(res)
     },
     fetchTodo() {
       console.log('fuga')
-    }
-  }
+    },
+    isToday(someDateStr) {
+      const today = new Date()
+      const someDate = new Date(Date.parse(someDateStr))
+      return someDate.getDate() == today.getDate() &&
+      someDate.getMonth() == today.getMonth() &&
+      someDate.getFullYear() == today.getFullYear()
+    },
+    updateSchedureCards(res) {
+      this.todayCardsProperties = []
+      this.tomorrowCardsProperties = []
+
+      let users = {}
+      res.data.included.forEach((u) => {
+        users[u.id.replace(',', '')] = u.attributes.image_url // timetreeのユーザーidはカレンダーID（英数）,ユーザーID（数字）となっており、key名にカンマが使えないので削除して扱う
+      })
+      res.data.data.forEach((event) => {
+        const newEvent = {
+          cardTitle: event.attributes.title,
+          cardTime: this.eventTime(event.attributes.start_at, event.attributes.end_at),
+          cardIconUrls: event.relationships.attendees.data.map((d) => users[d.id.replace(',', '')]),
+        }
+
+        if (this.isToday(event.attributes.start_at)) {
+          this.todayCardsProperties.push(newEvent)
+        } else if (this.tomorrowCardsProperties.length < 4) {
+          this.tomorrowCardsProperties.push(newEvent)
+        }
+      })
+    },
+  },
+  mounted() {
+    this.fetchSchedule()
+  },
 }
 </script>
