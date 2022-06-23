@@ -195,7 +195,7 @@ export default {
       // console.log('res', res)
       // console.log('res["data"][1]["timeSeries"]', res["data"][1]["timeSeries"])
 
-      const timeDefines = res["data"][1]["timeSeries"][0]["timeDefines"].slice(0, 3).map((dateStr) => new Date(dateStr)).map((date) => `${date.getMonth()}/${date.getDate()}`)
+      const timeDefines = res["data"][1]["timeSeries"][0]["timeDefines"].slice(0, 3).map((dateStr) => new Date(dateStr)).map((date) => `${date.getMonth() + 1}/${date.getDate()}`)
       const pops = res["data"][1]["timeSeries"][0]["areas"][0]["pops"].slice(0, 3).map((pop) => pop == '' ? '--' : pop )
       const weatherCodes = res["data"][1]["timeSeries"][0]["areas"][0]["weatherCodes"].slice(0, 3)
       const tempsMax = res["data"][1]["timeSeries"][1]["areas"][0]["tempsMax"].slice(0, 3).map((tempMax) => tempMax == '' ? '--' : tempMax )

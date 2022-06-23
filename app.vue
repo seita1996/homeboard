@@ -50,7 +50,7 @@ export default {
       todayCardsProperties: [
         {
           cardTitle: '買い物',
-          cardTime: '5/1 5/1 10:00 ~ 11:00',
+          cardTime: '5/1 10:00 ~ 11:00',
           cardIconUrls: [
             'https://3.bp.blogspot.com/-p1j5JG0kN8I/Wn1ZUJ3CbuI/AAAAAAABKK4/hKPhQjTXXv0o3QXh1J0rQ4TaFqGqUGu7ACLcBGAs/s800/animal_smile_kuma.png',
             'https://2.bp.blogspot.com/-mRJKwyORJkQ/Wn1ZTOBrszI/AAAAAAABKKs/Bg5yjLL9RYwmfUM0pEkBA3Ky3ui0IOZWQCLcBGAs/s800/animal_smile_inu.png'
