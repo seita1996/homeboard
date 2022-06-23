@@ -137,7 +137,7 @@ export default {
 
         if (this.isToday(event.attributes.start_at)) {
           this.todayCardsProperties.push(newEvent)
-        } else if (this.tomorrowCardsProperties.length < 4) {
+        } else if (this.tomorrowCardsProperties.length < 3) {
           this.tomorrowCardsProperties.push(newEvent)
         }
       })

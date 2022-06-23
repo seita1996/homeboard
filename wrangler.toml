@@ -1,0 +1,15 @@
+name = "homeboard"
+type = "javascript"
+account_id = "ed6fa2bd108b58c09e89c05a72205e7c"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2022-04-07"
+
+[site]
+bucket = ".output/public"
+entry-point = ".output"
+
+[build]
+command = "NITRO_PRESET=cloudflare yarn nuxt build"
+upload.format = "service-worker"
