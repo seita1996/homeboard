@@ -48,38 +48,38 @@ export default {
     return {
       settingModalVisible: false,
       todayCardsProperties: [
-        {
-          cardTitle: '買い物',
-          cardTime: '5/1 10:00 ~ 11:00',
-          cardIconUrls: [
-            'https://3.bp.blogspot.com/-p1j5JG0kN8I/Wn1ZUJ3CbuI/AAAAAAABKK4/hKPhQjTXXv0o3QXh1J0rQ4TaFqGqUGu7ACLcBGAs/s800/animal_smile_kuma.png',
-            'https://2.bp.blogspot.com/-mRJKwyORJkQ/Wn1ZTOBrszI/AAAAAAABKKs/Bg5yjLL9RYwmfUM0pEkBA3Ky3ui0IOZWQCLcBGAs/s800/animal_smile_inu.png'
-          ]
-        },
-        {
-          cardTitle: '病院',
-          cardTime: '5/1 15:00 ~ 17:00',
-          cardIconUrls: ['https://github.com/seita1996.png']
-        },
-        {
-          cardTitle: '薬を飲む',
-          cardTime: '5/1 終日',
-          cardIconUrls: []
-        },
+        // {
+        //   cardTitle: '買い物',
+        //   cardTime: '5/1 10:00 ~ 11:00',
+        //   cardIconUrls: [
+        //     'https://3.bp.blogspot.com/-p1j5JG0kN8I/Wn1ZUJ3CbuI/AAAAAAABKK4/hKPhQjTXXv0o3QXh1J0rQ4TaFqGqUGu7ACLcBGAs/s800/animal_smile_kuma.png',
+        //     'https://2.bp.blogspot.com/-mRJKwyORJkQ/Wn1ZTOBrszI/AAAAAAABKKs/Bg5yjLL9RYwmfUM0pEkBA3Ky3ui0IOZWQCLcBGAs/s800/animal_smile_inu.png'
+        //   ]
+        // },
+        // {
+        //   cardTitle: '病院',
+        //   cardTime: '5/1 15:00 ~ 17:00',
+        //   cardIconUrls: ['https://github.com/seita1996.png']
+        // },
+        // {
+        //   cardTitle: '薬を飲む',
+        //   cardTime: '5/1 終日',
+        //   cardIconUrls: []
+        // },
       ],
       tomorrowCardsProperties: [
-        {
-          cardTitle: '仕事',
-          cardTime: '5/2 9:00 ~ 18:00',
-          cardIconUrls: ['https://github.com/seita1996.png']
-        },
+        // {
+        //   cardTitle: '仕事',
+        //   cardTime: '5/2 9:00 ~ 18:00',
+        //   cardIconUrls: ['https://github.com/seita1996.png']
+        // },
       ],
       todoCardsProperties: [
-        {
-          cardTitle: '納税',
-          cardTime: '5/30',
-          cardIconUrls: []
-        },
+        // {
+        //   cardTitle: '納税',
+        //   cardTime: '5/30',
+        //   cardIconUrls: []
+        // },
       ],
     }
   },
