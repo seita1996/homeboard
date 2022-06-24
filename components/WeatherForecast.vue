@@ -215,6 +215,13 @@ export default {
   },
   mounted() {
     this.fetchWeather()
+
+    const apicall = function(){
+      this.fetchWeather()
+    }.bind(this)
+
+    // 10分おきに実行
+    setInterval(apicall, 600000)
   }
 }
 </script>

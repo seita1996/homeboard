@@ -145,6 +145,13 @@ export default {
   },
   mounted() {
     this.fetchSchedule()
+
+    const apicall = function(){
+      this.fetchSchedule()
+    }.bind(this)
+
+    // 10分おきに実行
+    setInterval(apicall, 600000)
   },
 }
 </script>
