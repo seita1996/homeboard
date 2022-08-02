@@ -77,10 +77,11 @@ export default {
     },
     updateSettings() {
       console.log('updateSettings')
-      this.$cookiz.set('timetreeApiKey', this.timetreeApiKey)
-      this.$cookiz.set('timetreeCalendarId', this.timetreeCalendarId)
-      this.$cookiz.set('notionApiKey', this.notionApiKey)
-      this.$cookiz.set('notionTodoDatabaseId', this.notionTodoDatabaseId)
+      const exp = new Date(new Date().getTime() + 1000 * 3600 * 24 * 30 * 12)
+      this.$cookiz.set('timetreeApiKey', this.timetreeApiKey, { expires: exp })
+      this.$cookiz.set('timetreeCalendarId', this.timetreeCalendarId, { expires: exp })
+      this.$cookiz.set('notionApiKey', this.notionApiKey, { expires: exp })
+      this.$cookiz.set('notionTodoDatabaseId', this.notionTodoDatabaseId, { expires: exp })
       alert('設定を更新しました')
       this.$emit('close')
     }
