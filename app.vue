@@ -110,8 +110,37 @@ export default {
       // console.log('res', res)
       this.updateSchedureCards(res)
     },
-    fetchTodo() {
-      console.log('fuga')
+    async fetchTodo() {
+      const databaseId = this.$cookiz.get('notionTodoDatabaseId')
+      const token = this.$cookiz.get('notionApiKey')
+      const query =
+        {
+          "filter": {
+            "and": [
+              {
+                "property": "ステータス",
+                "select": {
+                  "does_not_equal": "完了"
+                }
+              }
+            ]
+          },
+          "sorts": [
+            {
+              "property": "期限",
+              "direction": "ascending"
+            }
+          ]
+        }
+      const res = await axios.post(`/api/v1/databases/${databaseId}/query`, {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Notion-Version": "2021-08-16",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(query)
+      })
+      console.log('hogehogehoge', res)
     },
     isToday(someDateStr) {
       const today = new Date()
@@ -145,9 +174,11 @@ export default {
   },
   mounted() {
     this.fetchSchedule()
+    this.fetchTodo()
 
     const apicall = function(){
       this.fetchSchedule()
+      this.fetchTodo()
     }.bind(this)
 
     // 10分おきに実行

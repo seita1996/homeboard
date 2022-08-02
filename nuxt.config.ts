@@ -4,4 +4,17 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   buildModules: ['@nuxtjs/tailwindcss'],
   modules: [['cookie-universal-nuxt', { alias: 'cookiz' }]],
+
+  vite: {
+    server: {
+      proxy: {
+        '/api/': {
+          target: 'https://api.notion.com',
+          changeOrigin: true,
+          secure: false,
+          ws: true,
+        }
+      }
+    }
+  },
 })
