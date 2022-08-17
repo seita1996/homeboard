@@ -4,4 +4,7 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   buildModules: ['@nuxtjs/tailwindcss'],
   modules: [['cookie-universal-nuxt', { alias: 'cookiz' }]],
+  build: {
+    transpile: ['@heroicons/vue']
+  }
 })
