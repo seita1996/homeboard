@@ -7,7 +7,7 @@
             <div
               class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
               <h5 class="text-xl font-medium leading-normal text-gray-600">設定</h5>
-              <XIcon class="h-10 w-10 text-gray-500 float-right mr-3 cursor-pointer" @click="close" />
+              <XMarkIcon class="h-10 w-10 text-gray-500 float-right mr-3 cursor-pointer" @click="close" />
             </div>
             <div class="modal-body relative p-4">
               <div class="mb-6">
@@ -43,11 +43,11 @@
 </template>
 
 <script>
-import { XIcon } from '@heroicons/vue/outline'
+import { XMarkIcon } from '@heroicons/vue/24/outline'
 
 export default {
   components: {
-    XIcon
+    XMarkIcon
   },
   props: {
     isVisible: {

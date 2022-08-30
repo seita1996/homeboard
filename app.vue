@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { CogIcon } from '@heroicons/vue/outline'
+import { CogIcon } from '@heroicons/vue/24/outline'
 
 import CardList from '~/components/CardList.vue'
 import DigitalClock from '~/components/DigitalClock.vue'
