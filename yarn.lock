@@ -403,10 +403,10 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.3.tgz#0a39aa5c8a7639828914e6edc064ded72ff68d3a"
   integrity sha512-pe7L+LnITFHUSUnuhSQRyYN2E5Anl0r7x/jW+ufc+4fBcaK3Q51b/3ufFWWhmIiuCkr7oKtmVSpaJ1DxbtSfuw==
 
-"@heroicons/vue@^2.0.8":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@heroicons/vue/-/vue-2.0.8.tgz#0ceea8c55b86b5e0ddd9d4b44ee22b161013268c"
-  integrity sha512-m5sALwH9ezG6KzGWUXjvM0s5DScgS6+PukGgoBvv0wUx6cC6kq+slVVGXPbsDKuWc9q2aAguP7h/fjHPnkGjnQ==
+"@heroicons/vue@^2.0.10":
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/@heroicons/vue/-/vue-2.0.10.tgz#9de6807b13d77db82f10a652d5ec5c0c00393b54"
+  integrity sha512-K32WvSqsuWQrxqAAGCaTELW6VCOgg7OeVP+VBwCMbyeflnguJlCfHNlJ+0z4aPpgJCWB2RESRy3x59t+2byKSg==
 
 "@ioredis/commands@^1.1.1":
   version "1.1.1"
