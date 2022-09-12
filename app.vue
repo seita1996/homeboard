@@ -19,7 +19,7 @@
         <card-list :title="'TODO'" :cardsProperties="todoCardsProperties" />
       </div>
     </div>
-    <CogIcon class="h-10 w-10 text-gray-400 float-right mr-3 cursor-pointer" data-modal-toggle="authentication-modal" @click="showSettingModal" />
+    <CogIcon class="h-10 w-10 text-gray-400 float-right mr-3 cursor-pointer footer" data-modal-toggle="authentication-modal" @click="showSettingModal" />
     <div>
       <setting-modal :isVisible="settingModalVisible" @close="closeSettingModal"></setting-modal>
     </div>
@@ -155,3 +155,10 @@ export default {
   },
 }
 </script>
+
+<style>
+  .footer {
+    position: sticky;
+    top: 100vh;
+  }
+</style>
