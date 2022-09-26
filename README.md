@@ -1,4 +1,5 @@
 [![GitHub Release](https://img.shields.io/github/release/seita1996/homeboard.svg?style=flat)]()
+[![Netlify Status](https://api.netlify.com/api/v1/badges/be0abdb1-e966-4798-ab3c-fdb51081da08/deploy-status)](https://app.netlify.com/sites/homeboard-nuxt3/deploys)
 
 # Nuxt 3 Minimal Starter
 
