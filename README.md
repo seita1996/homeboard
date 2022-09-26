@@ -1,3 +1,5 @@
+[![GitHub Release](https://img.shields.io/github/release/seita1996/homeboard.svg?style=flat)]()
+
 # Nuxt 3 Minimal Starter
 
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
