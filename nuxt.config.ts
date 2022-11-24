@@ -2,5 +2,7 @@
 export default {
   buildModules: ['@nuxtjs/tailwindcss'],
   modules: ['@nuxtjs/tailwindcss'],
-  transpile: ['@heroicons/vue']
+  build: {
+    transpile: ['@heroicons/vue']
+  }
 }
