@@ -100,8 +100,8 @@ export default {
       return `${startAt.getMonth() + 1}/${startAt.getDate()} ${startAt.getHours()}:${startAt.getMinutes().toString().padStart(2, '0')} ~ ${endAt.getHours()}:${endAt.getMinutes().toString().padStart(2, '0')}`
     },
     async fetchSchedule() {
-      const calendarId = this.$cookiz.get('timetreeCalendarId')
-      const token = this.$cookiz.get('timetreeApiKey')
+      const calendarId = useCookie('timetreeCalendarId').value
+      const token = useCookie('timetreeApiKey').value
       const res = await axios.get(`https://timetreeapis.com/calendars/${calendarId}/upcoming_events?timezone=Asia/Tokyo&days=7&include=attendees`, {
         headers: {
           Authorization: `Bearer ${token}`,
