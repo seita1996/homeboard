@@ -70,18 +70,22 @@ export default {
     },
     getSettings() {
       console.log('getSettings')
-      this.timetreeApiKey = this.$cookiz.get('timetreeApiKey')
-      this.timetreeCalendarId = this.$cookiz.get('timetreeCalendarId')
-      this.notionApiKey = this.$cookiz.get('notionApiKey')
-      this.notionTodoDatabaseId = this.$cookiz.get('notionTodoDatabaseId')
+      this.timetreeApiKey = useCookie('timetreeApiKey').value
+      this.timetreeCalendarId = useCookie('timetreeCalendarId').value
+      this.notionApiKey = useCookie('notionApiKey').value
+      this.notionTodoDatabaseId = useCookie('notionTodoDatabaseId').value
     },
     updateSettings() {
       console.log('updateSettings')
       const exp = new Date(new Date().getTime() + 1000 * 3600 * 24 * 30 * 12)
-      this.$cookiz.set('timetreeApiKey', this.timetreeApiKey, { expires: exp })
-      this.$cookiz.set('timetreeCalendarId', this.timetreeCalendarId, { expires: exp })
-      this.$cookiz.set('notionApiKey', this.notionApiKey, { expires: exp })
-      this.$cookiz.set('notionTodoDatabaseId', this.notionTodoDatabaseId, { expires: exp })
+      const timetreeApiKey = useCookie('timetreeApiKey', { expires: exp })
+      timetreeApiKey.value = this.timetreeApiKey
+      const timetreeCalendarId = useCookie('timetreeCalendarId', { expires: exp })
+      timetreeCalendarId.value = this.timetreeCalendarId
+      const notionApiKey = useCookie('notionApiKey', { expires: exp })
+      notionApiKey.value = this.notionApiKey
+      const notionTodoDatabaseId = useCookie('notionTodoDatabaseId', { expires: exp })
+      notionTodoDatabaseId.value = this.notionTodoDatabaseId
       alert('設定を更新しました')
       this.$emit('close')
     }

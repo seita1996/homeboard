@@ -1,10 +1,9 @@
-import { defineNuxtConfig } from 'nuxt'
-
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
-export default defineNuxtConfig({
+export default {
+  // ssr: false,
   buildModules: ['@nuxtjs/tailwindcss'],
-  modules: [['cookie-universal-nuxt', { alias: 'cookiz' }]],
+  modules: ['@nuxtjs/tailwindcss'],
   build: {
     transpile: ['@heroicons/vue']
   }
-})
+}
