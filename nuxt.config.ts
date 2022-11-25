@@ -3,6 +3,6 @@ export default {
   buildModules: ['@nuxtjs/tailwindcss'],
   modules: ['@nuxtjs/tailwindcss'],
   build: {
-    transpile: ['@heroicons/vue']
+    transpile: ['@heroicons/vue', 'node-fetch']
   }
 }
