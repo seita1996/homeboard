@@ -19,12 +19,8 @@
                   <input type="text" id="timetreecalendarid-input" v-model="timetreeCalendarId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
               </div>
               <div class="mb-6">
-                  <label for="notionapikey-input" class="block mb-2 text-sm font-medium text-gray-600">Notion API Key</label>
-                  <input type="text" id="notionapikey-input" v-model="notionApiKey" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-              </div>
-              <div class="mb-6">
-                  <label for="notiontododbid-input" class="block mb-2 text-sm font-medium text-gray-600">Notion Todo Database ID</label>
-                  <input type="text" id="notiontododbid-input" v-model="notionTodoDatabaseId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                  <label for="freespaceapiurl-input" class="block mb-2 text-sm font-medium text-gray-600">Freespace API URL</label>
+                  <input type="text" id="freespaceapiurl-input" v-model="freespaceApiUrl" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
               </div>
               <div class="flex flex-row-reverse">
                 <button class="bg-white hover:bg-gray-100 text-gray-600 font-semibold py-2 px-4 border border-gray-300 rounded-lg shadow" @click="updateSettings">
@@ -60,8 +56,7 @@ export default {
     return {
       timetreeApiKey: '',
       timetreeCalendarId: '',
-      notionApiKey: '',
-      notionTodoDatabaseId: '',
+      freespaceApiUrl: '',
     }
   },
   methods: {
@@ -72,8 +67,7 @@ export default {
       console.log('getSettings')
       this.timetreeApiKey = useCookie('timetreeApiKey').value
       this.timetreeCalendarId = useCookie('timetreeCalendarId').value
-      this.notionApiKey = useCookie('notionApiKey').value
-      this.notionTodoDatabaseId = useCookie('notionTodoDatabaseId').value
+      this.freespaceApiUrl = useCookie('freespaceApiUrl').value
     },
     updateSettings() {
       console.log('updateSettings')
@@ -82,10 +76,8 @@ export default {
       timetreeApiKey.value = this.timetreeApiKey
       const timetreeCalendarId = useCookie('timetreeCalendarId', { expires: exp })
       timetreeCalendarId.value = this.timetreeCalendarId
-      const notionApiKey = useCookie('notionApiKey', { expires: exp })
-      notionApiKey.value = this.notionApiKey
-      const notionTodoDatabaseId = useCookie('notionTodoDatabaseId', { expires: exp })
-      notionTodoDatabaseId.value = this.notionTodoDatabaseId
+      const freespaceApiUrl = useCookie('freespaceApiUrl', { expires: exp })
+      freespaceApiUrl.value = this.freespaceApiUrl
       alert('設定を更新しました')
       this.$emit('close')
     }

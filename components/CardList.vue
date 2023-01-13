@@ -28,11 +28,11 @@ export default {
     cardsProperties: {
       type: Array,
       default: [
-        {
-          cardTitle: '病院',
-          cardTime: '5/1 15:00 ~ 17:00',
-          cardIconUrls: ['https://github.com/seita1996.png']
-        },
+        // {
+        //   cardTitle: '病院',
+        //   cardTime: '5/1 15:00 ~ 17:00',
+        //   cardIconUrls: ['https://github.com/seita1996.png']
+        // },
       ]
     },
   },

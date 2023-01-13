@@ -16,7 +16,7 @@
         <card-list :title="'明日以降の予定'" :cardsProperties="tomorrowCardsProperties" />
       </div>
       <div class="basis-1/3 m-3">
-        <card-list :title="'TODO'" :cardsProperties="todoCardsProperties" />
+        <card-list :title="freespaceTitle" :cardsProperties="freespaceCardsProperties" />
       </div>
     </div>
     <CogIcon class="h-10 w-10 text-gray-400 float-right mr-3 cursor-pointer footer" data-modal-toggle="authentication-modal" @click="showSettingModal" />
@@ -74,13 +74,14 @@ export default {
         //   cardIconUrls: ['https://github.com/seita1996.png']
         // },
       ],
-      todoCardsProperties: [
+      freespaceCardsProperties: [
         // {
         //   cardTitle: '納税',
         //   cardTime: '5/30',
         //   cardIconUrls: []
         // },
       ],
+      freespaceTitle: 'Free Space'
     }
   },
   methods: {
@@ -110,8 +111,14 @@ export default {
       // console.log('res', res)
       this.updateSchedureCards(res)
     },
-    fetchTodo() {
-      console.log('fuga')
+    async fetchFreespaceAPI() {
+      const url = useCookie('freespaceApiUrl').value
+      const res = await axios.get(url, {
+        headers: {
+          Accept: 'application/json'
+        }
+      })
+      this.updateFreespaceCards(res)
     },
     isToday(someDateStr) {
       const today = new Date()
@@ -142,12 +149,26 @@ export default {
         }
       })
     },
+    updateFreespaceCards(res) {
+      this.freespaceCardsProperties = []
+      this.freespaceTitle = res.data.title
+      res.data.meals.forEach((event) => {
+        const newEvent = {
+          cardTitle: event.text,
+          cardTime: this.eventTime(event.date, event.date),
+          cardIconUrls: [],
+        }
+        this.freespaceCardsProperties.push(newEvent)
+      })
+    },
   },
   mounted() {
     this.fetchSchedule()
+    this.fetchFreespaceAPI()
 
     const apicall = function(){
       this.fetchSchedule()
+      this.fetchFreespaceAPI()
     }.bind(this)
 
     // 10分おきに実行
