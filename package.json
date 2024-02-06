@@ -7,7 +7,7 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "nuxt": "3.10.0"
+    "nuxt": "3.10.1"
   },
   "dependencies": {
     "@heroicons/vue": "^2.1.1",
